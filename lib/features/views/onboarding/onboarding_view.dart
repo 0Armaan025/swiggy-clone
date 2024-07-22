@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:swiggy_clone/utils/theme/pallete.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
@@ -51,7 +52,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                         "Swiggy",
                         style: GoogleFonts.poppins(
                           color: Colors.white,
-                          fontSize: 46,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -66,7 +67,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                           child: Text(
                             "Food",
                             style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w300,
+                              fontWeight: FontWeight.w500,
                               color: Colors.white,
                               fontSize: 18,
                             ),
@@ -83,7 +84,59 @@ class _OnboardingViewState extends State<OnboardingView> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 18.0),
+                          child: Text(
+                            "🔴 Dineout",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w300,
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
                       ],
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 1,
+                      margin: const EdgeInsets.symmetric(horizontal: 18)
+                          .copyWith(top: 18),
+                      color: Colors.grey[600],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 18.0),
+                      child: Text(
+                        "Up to 40% off on dining bills",
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 22,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Center(
+                      child: Container(
+                        width: double.infinity,
+                        height: size.height * 0.07,
+                        alignment: Alignment.center,
+                        margin: const EdgeInsets.symmetric(horizontal: 18),
+                        decoration: BoxDecoration(
+                          color: Pallete().buttonColor,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          "Get Started",
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),

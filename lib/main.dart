@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_clone/features/views/onboarding_view.dart';
+import 'package:swiggy_clone/features/views/onboarding/onboarding_view.dart';
+import 'package:swiggy_clone/features/views/otp/otp_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: OnboardingView(),
+    
+      home: OtpView(),
     );
   }
 }

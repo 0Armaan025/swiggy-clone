@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:swiggy_clone/common/address_tile/address_tile.dart';
 
 class AddressingView extends StatefulWidget {
   const AddressingView({super.key});
@@ -92,7 +93,13 @@ class _AddressingViewState extends State<AddressingView> {
                   "SEARCH RESULTS",
                   style: GoogleFonts.roboto(color: Colors.grey[500]),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              AddressTile(),
+              AddressTile(),
+              AddressTile(),
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_clone/features/views/address/address_view.dart';
+import 'package:swiggy_clone/features/views/home/home_view.dart';
 import 'package:swiggy_clone/features/views/location/location_screen.dart';
 import 'package:swiggy_clone/features/views/onboarding/onboarding_view.dart';
 import 'package:swiggy_clone/features/views/otp/otp_view.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AddressingView(),
+      home: HomeScreen(),
     );
   }
 }

@@ -1,18 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import "dart:math";
 
 class HomeScreen extends StatelessWidget {
   final _searchController = TextEditingController();
   final List<String> imgList = [
-    'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-    'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-    'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-    'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+    'assets/images/banners/banner0.png',
+    'assets/images/banners/banner1.png',
+    'assets/images/banners/banner2.png',
   ];
 
   @override
@@ -22,18 +19,20 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
+            // Sliver header
             SliverPersistentHeader(
               delegate: CustomHeaderDelegate(),
               pinned: false,
               floating: true,
             ),
+            // Carousel section
             SliverToBoxAdapter(
               child: Container(
                 width: double.infinity,
-                height: 400,
+                height: 180,
                 child: CarouselSlider(
                   options: CarouselOptions(
-                    height: size.height * 0.22,
+                    height: size.height * 0.19,
                     autoPlay: true,
                     enlargeCenterPage: true,
                   ),
@@ -46,8 +45,9 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(8),
                           margin: EdgeInsets.symmetric(horizontal: 5.0),
                           decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
                             image: DecorationImage(
-                              image: NetworkImage(imgUrl),
+                              image: AssetImage(imgUrl),
                               fit: BoxFit.cover,
                             ),
                             gradient: LinearGradient(
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                                 HexColor("#f9f9f9"),
                               ],
                             ),
-                            borderRadius: BorderRadius.circular(6.0),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         );
                       },
@@ -67,28 +67,53 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Container(
-                width: double.infinity,
-                height: 400,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 200, // Adjust width as needed
-                        color: Colors.red,
+
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: size.width * 0.54,
+                            height: size.height * 0.14,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey.shade400),
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/banners/banner3.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: size.width * 0.03),
+                          SizedBox(width: size.width * 0.04),
+                          Container(
+                            width: size.width * 0.54,
+                            height: size.height * 0.14,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey.shade400),
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/banners/banner4.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      Container(
-                        width: 200, // Adjust width as needed
-                        color: Colors.blue,
-                      ),
-                      // Add more containers or widgets here
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
+                childCount: 1,
               ),
             ),
+
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) => ListTile(
@@ -113,6 +138,9 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     final size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.only(top: 6),
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
       child: Column(
         children: [
           Row(
@@ -124,10 +152,13 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(
-                        Icons.navigation_sharp,
-                        size: 30,
-                        color: HexColor("fb6018"),
+                      Transform.rotate(
+                        angle: -11.8,
+                        child: Icon(
+                          Icons.navigation_sharp,
+                          size: 30,
+                          color: HexColor("fb6018"),
+                        ),
                       ),
                       Text(
                         "Some name",
@@ -143,11 +174,17 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 14.0),
-                    child: Text(
-                      "some random boring address...",
-                      style: GoogleFonts.poppins(color: Colors.grey[500]),
+                  Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 14.0),
+                      child: Text(
+                        "some random boring address...",
+                        style: GoogleFonts.poppins(
+                          color: Colors.grey[500],
+                          fontSize: 12,
+                        ),
+                      ),
                     ),
                   )
                 ],
@@ -172,19 +209,25 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
             child: TextFormField(
               controller: _searchController,
               decoration: InputDecoration(
-                hintText: "Search for products...",
-                hintStyle: GoogleFonts.poppins(color: Colors.grey[500]),
+                fillColor: HexColor("#f1f1f3"),
+                filled: true,
+                hintText: "Search for 'French Fries', I like 'em",
+                hintStyle: GoogleFonts.poppins(
+                    color: Colors.grey[600], fontWeight: FontWeight.w500),
                 suffixIcon: Icon(
                   Icons.search,
-                  color: Colors.grey[500],
+                  color: Colors.grey[700],
                 ),
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade600),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade600),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
+              style: TextStyle(fontSize: 15),
             ),
           ),
         ],
@@ -193,10 +236,10 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get minExtent => 180.0;
+  double get minExtent => 175.0;
 
   @override
-  double get maxExtent => 200.0;
+  double get maxExtent => 175.0;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {

@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import "dart:math";
 
+import 'package:swiggy_clone/common/whats_on_mind/whats_on_mind.dart';
+
 class HomeScreen extends StatelessWidget {
   final _searchController = TextEditingController();
   final List<String> imgList = [
@@ -78,8 +80,8 @@ class HomeScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           Container(
-                            width: size.width * 0.54,
-                            height: size.height * 0.14,
+                            width: size.width * 0.4,
+                            height: size.height * 0.09,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey.shade400),
                               borderRadius: BorderRadius.circular(8),
@@ -93,8 +95,23 @@ class HomeScreen extends StatelessWidget {
                           SizedBox(width: size.width * 0.03),
                           SizedBox(width: size.width * 0.04),
                           Container(
-                            width: size.width * 0.54,
-                            height: size.height * 0.14,
+                            width: size.width * 0.4,
+                            height: size.height * 0.09,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey.shade400),
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/banners/banner4.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: size.width * 0.03),
+                          SizedBox(width: size.width * 0.04),
+                          Container(
+                            width: size.width * 0.4,
+                            height: size.height * 0.09,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey.shade400),
                               borderRadius: BorderRadius.circular(8),
@@ -115,11 +132,10 @@ class HomeScreen extends StatelessWidget {
             ),
 
             SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => ListTile(
-                  title: Text("Item #$index"),
-                ),
-                childCount: 50,
+              delegate: SliverChildListDelegate(
+                [
+                  WhatsOnYourMindComponent(),
+                ]
               ),
             ),
           ],

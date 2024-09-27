@@ -1,6 +1,10 @@
+import 'package:background_remover/background_remover.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:http/http.dart' as http;
+import 'package:swiggy_clone/features/views/home/home_view.dart';
+import 'package:swiggy_clone/utils/utils.dart';
 
 class NoOrdersScreen extends StatefulWidget {
   const NoOrdersScreen({super.key});
@@ -51,7 +55,7 @@ class _NoOrdersScreenState extends State<NoOrdersScreen> {
               ),
               Center(
                 child: Image(
-                  image: NetworkImage(""),
+                  image: Image.memory(removedBackgroundBytes).image,
                 ),
               ),
               const SizedBox(
@@ -77,17 +81,22 @@ class _NoOrdersScreenState extends State<NoOrdersScreen> {
                 height: 15,
               ),
               Center(
-                child: Container(
-                  height: size.height * 0.05,
-                  width: size.width * 0.23,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Order Now",
-                    style: GoogleFonts.roboto(color: Colors.white),
+                child: InkWell(
+                  onTap: () {
+                    moveToScreen(context, HomeScreen(), true);
+                  },
+                  child: Container(
+                    height: size.height * 0.05,
+                    width: size.width * 0.23,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Order Now",
+                      style: GoogleFonts.roboto(color: Colors.white),
+                    ),
                   ),
                 ),
               ),

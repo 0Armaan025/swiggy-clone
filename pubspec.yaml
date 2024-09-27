@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^6.2.1
   carousel_slider: ^4.2.1
   lottie: ^3.1.2
+  background_remover: ^0.0.3
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/banners/
+    - assets/images/foods/
     - assets/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see

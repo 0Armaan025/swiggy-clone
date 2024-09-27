@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:swiggy_clone/common/quick_points_for_you/quick_points_for_you.dart';
 import "dart:math";
 
 import 'package:swiggy_clone/common/whats_on_mind/whats_on_mind.dart';
@@ -132,11 +133,10 @@ class HomeScreen extends StatelessWidget {
             ),
 
             SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  WhatsOnYourMindComponent(),
-                ]
-              ),
+              delegate: SliverChildListDelegate([
+                WhatsOnYourMindComponent(),
+                QuickPointsForYou(),
+              ]),
             ),
           ],
         ),

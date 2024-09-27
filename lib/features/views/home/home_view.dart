@@ -136,6 +136,18 @@ class HomeScreen extends StatelessWidget {
               delegate: SliverChildListDelegate([
                 WhatsOnYourMindComponent(),
                 QuickPointsForYou(),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: size.width * 0.32,
+                  height: size.height * 0.26,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                              'assets/images/banners/banner5 (1) (1).png'),
+                          fit: BoxFit.cover)),
+                ),
               ]),
             ),
           ],

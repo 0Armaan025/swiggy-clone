@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuickPickTile extends StatefulWidget {
-  const QuickPickTile({super.key});
+  final String name;
+  final String imageUrl;
+  final String desc;
+  final String category;
+  const QuickPickTile(
+      {super.key,
+      required this.name,
+      required this.imageUrl,
+      required this.desc,
+      required this.category});
 
   @override
   State<QuickPickTile> createState() => _QuickPickTileState();
@@ -35,9 +44,7 @@ class _QuickPickTileState extends State<QuickPickTile> {
                     color: Colors.grey.shade800,
                   ),
                   image: DecorationImage(
-                      image: AssetImage(
-                          "assets/images/banners/food_item_banner.png"),
-                      fit: BoxFit.cover),
+                      image: AssetImage(widget.imageUrl), fit: BoxFit.cover),
                 ),
               ),
               Positioned(
@@ -69,7 +76,7 @@ class _QuickPickTileState extends State<QuickPickTile> {
         Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: Text(
-            "La Pino'z Pizza",
+            widget.name,
             style: GoogleFonts.poppins(
                 color: Colors.grey.shade900,
                 fontSize: 12,
@@ -91,7 +98,7 @@ class _QuickPickTileState extends State<QuickPickTile> {
             Container(
               width: 100,
               child: Text(
-                " 4.4\t25-30 mins",
+                widget.desc,
                 style: GoogleFonts.poppins(
                   color: Colors.grey.shade900,
                   fontSize: 9,
@@ -103,7 +110,7 @@ class _QuickPickTileState extends State<QuickPickTile> {
         Padding(
           padding: const EdgeInsets.only(left: 2.0),
           child: Text(
-            "Pizzas",
+            widget.category,
             style:
                 GoogleFonts.poppins(color: Colors.grey.shade500, fontSize: 9),
           ),

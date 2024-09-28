@@ -131,7 +131,12 @@ class QuickPointsForYouState extends State<QuickPointsForYou> {
               ),
               itemCount: 4,
               itemBuilder: (context, index) {
-                return QuickPickTile();
+                return QuickPickTile(
+                  name: 'La Pino\'z Pizza',
+                  imageUrl: 'assets/images/banners/food_item_banner.png',
+                  category: 'Pizzas',
+                  desc: '4.4\t25-30 mins',
+                );
               },
             ),
           ),

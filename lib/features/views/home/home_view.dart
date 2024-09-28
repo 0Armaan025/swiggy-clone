@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:swiggy_clone/common/quick_points_for_you/quick_points_for_you.dart';
-import "dart:math";
 
 import 'package:swiggy_clone/common/whats_on_mind/whats_on_mind.dart';
 
@@ -22,13 +21,11 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            // Sliver header
             SliverPersistentHeader(
               delegate: CustomHeaderDelegate(),
               pinned: false,
               floating: true,
             ),
-            // Carousel section
             SliverToBoxAdapter(
               child: Container(
                 width: double.infinity,
@@ -46,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                           height: size.height * 0.2,
                           width: MediaQuery.of(context).size.width,
                           padding: const EdgeInsets.all(8),
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black),
                             image: DecorationImage(
@@ -70,7 +67,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
@@ -86,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey.shade400),
                               borderRadius: BorderRadius.circular(8),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: AssetImage(
                                     'assets/images/banners/banner3.png'),
                                 fit: BoxFit.cover,
@@ -101,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey.shade400),
                               borderRadius: BorderRadius.circular(8),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: AssetImage(
                                     'assets/images/banners/banner4.png'),
                                 fit: BoxFit.cover,
@@ -116,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey.shade400),
                               borderRadius: BorderRadius.circular(8),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: AssetImage(
                                     'assets/images/banners/banner4.png'),
                                 fit: BoxFit.cover,
@@ -131,22 +127,56 @@ class HomeScreen extends StatelessWidget {
                 childCount: 1,
               ),
             ),
-
             SliverList(
               delegate: SliverChildListDelegate([
-                WhatsOnYourMindComponent(),
-                QuickPointsForYou(),
+                const WhatsOnYourMindComponent(),
+                const QuickPointsForYou(),
                 const SizedBox(
                   height: 10,
                 ),
                 Container(
                   width: size.width * 0.32,
                   height: size.height * 0.26,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
                               'assets/images/banners/banner5 (1) (1).png'),
                           fit: BoxFit.cover)),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 1,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade400,
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Center(
+                  child: Text(
+                    "See more restraunts >",
+                    style: GoogleFonts.poppins(
+                      color: HexColor("#DB6516"),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 1,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade400,
+                  ),
                 ),
               ]),
             ),
@@ -166,7 +196,7 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     final size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.only(top: 6),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
       ),
       child: Column(
@@ -217,12 +247,12 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                   )
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 50.0, top: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 50.0, top: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const CircleAvatar(
+                    CircleAvatar(
                       radius: 25,
                       backgroundImage:
                           NetworkImage('https://via.placeholder.com/150'),
@@ -255,7 +285,7 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              style: TextStyle(fontSize: 15),
+              style: const TextStyle(fontSize: 15),
             ),
           ),
         ],

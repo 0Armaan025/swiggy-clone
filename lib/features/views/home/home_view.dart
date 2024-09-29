@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:swiggy_clone/common/quick_points_for_you/quick_points_for_you.dart';
+import 'package:swiggy_clone/common/restraunts_to_explore/restraunts_to_explore.dart';
 
 import 'package:swiggy_clone/common/whats_on_mind/whats_on_mind.dart';
 
@@ -178,6 +179,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.grey.shade400,
                   ),
                 ),
+                RestrauntsToExplore(),
               ]),
             ),
           ],

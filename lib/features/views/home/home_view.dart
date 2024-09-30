@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:swiggy_clone/common/quick_points_for_you/quick_points_for_you.dart';
 import 'package:swiggy_clone/common/restraunts_to_explore/restraunts_to_explore.dart';
+import 'package:swiggy_clone/common/tell_us_component/tell_us_component.dart';
 
 import 'package:swiggy_clone/common/whats_on_mind/whats_on_mind.dart';
 
@@ -180,6 +181,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 RestrauntsToExplore(),
+                const SizedBox(
+                  height: 15,
+                ),
+                TellUsComponent(),
               ]),
             ),
           ],
@@ -250,7 +255,7 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                 ],
               ),
               const Padding(
-                padding: EdgeInsets.only(left: 50.0, top: 20),
+                padding: EdgeInsets.only(left: 70.0, top: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:swiggy_clone/common/crafted_by_component/crafted_by_component.dart';
 import 'package:swiggy_clone/common/quick_points_for_you/quick_points_for_you.dart';
 import 'package:swiggy_clone/common/restraunts_to_explore/restraunts_to_explore.dart';
 import 'package:swiggy_clone/common/tell_us_component/tell_us_component.dart';
@@ -185,6 +186,13 @@ class HomeScreen extends StatelessWidget {
                   height: 15,
                 ),
                 TellUsComponent(),
+                const SizedBox(
+                  height: 10,
+                ),
+                CraftedByComponent(),
+                const SizedBox(
+                  height: 20,
+                ),
               ]),
             ),
           ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_clone/features/feedback/feedback_view.dart';
 import 'package:swiggy_clone/features/views/home/home_view.dart';
+import 'package:swiggy_clone/features/views/notifications/notifications_view.dart';
+import 'package:swiggy_clone/features/views/otp/otp_view.dart';
 
 void main() {
   runApp(const MyApp());
